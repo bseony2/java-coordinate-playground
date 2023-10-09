@@ -1,6 +1,6 @@
 package fuel;
 
-public abstract class Car implements Drivable{
+public abstract class Car implements Drivable {
     private final double distance;
     private final double distancePerLiter;
 
