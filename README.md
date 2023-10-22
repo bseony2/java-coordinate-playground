@@ -24,3 +24,14 @@ git checkout main // 기본 브랜치가 main인 경우
 git checkout -b 브랜치이름
 ex) git checkout -b apply-feedback
 ```
+### 개발 목록
+* UI 개발
+    * 좌표를 입력하세요 -> UserInterface.getPoints
+    * 두 점 사이의 거리나 면적에 대한 출력 -> UserInterface.printResult
+* 입력 문자열을 좌표로 변환
+    * (x,y)-(x,y) 형식의 입력을 좌표 형식으로 변환 Utils.seperatedPoints
+    * 좌표의 개수에 따라 선, 삼각형, 사각형으로 나눔
+* 객체의 구조
+    * Figure 추상 클래스 선언
+    * 일급 콜렉션을 필드로 가짐(좌표들에 대한 List)
+    * 각 도형에 따라 결과 출력 (좌표사이의 거리 || 도형의 넓이) -> getResult
