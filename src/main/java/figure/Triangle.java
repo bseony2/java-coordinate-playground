@@ -14,4 +14,9 @@ public class Triangle extends Figure{
 
         return Math.sqrt(s*(s-lengths.get(0))*(s-lengths.get(1))*(s-lengths.get(2)));
     }
+
+    @Override
+    public String figureName() {
+        return "삼각형 넓이는 ";
+    }
 }

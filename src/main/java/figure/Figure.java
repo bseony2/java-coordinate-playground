@@ -14,4 +14,11 @@ public abstract class Figure {
     }
 
     abstract public double getArea();
+
+    abstract public String figureName();
+
+    @Override
+    public String toString() {
+        return figureName() + getArea();
+    }
 }

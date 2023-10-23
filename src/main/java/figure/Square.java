@@ -13,4 +13,9 @@ public class Square extends Figure{
         List<Double> lengths = getLengths();
         return lengths.get(0) * lengths.get(1);
     }
+
+    @Override
+    public String figureName() {
+        return "사각형 넓이는 ";
+    }
 }

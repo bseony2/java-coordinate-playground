@@ -13,4 +13,9 @@ public class Line extends Figure{
         List<Double> lengths = getLengths();
         return lengths.get(0);
     }
+
+    @Override
+    public String figureName() {
+        return "두 점 사이 거리는 ";
+    }
 }
