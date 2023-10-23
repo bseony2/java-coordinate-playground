@@ -6,6 +6,14 @@ public class Point {
     private final int x;
     private final int y;
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
@@ -27,5 +35,9 @@ public class Point {
     @Override
     public String toString() {
         return "x좌표 : " + x + ", y좌표 : " + y;
+    }
+
+    public double getDistanceWithOtherPoint(Point a) {
+        return Math.sqrt(Math.pow(this.x - a.x, 2) + Math.pow(this.y - a.y, 2));
     }
 }
