@@ -23,4 +23,8 @@ public class Point {
     public int hashCode() {
         return Objects.hash(x, y);
     }
+
+    public double getDistanceWithOtherPoint(Point a) {
+        return Math.sqrt(Math.pow(this.x - a.x, 2) + Math.pow(this.y - a.y, 2));
+    }
 }
