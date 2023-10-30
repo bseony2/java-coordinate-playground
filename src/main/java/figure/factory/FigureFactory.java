@@ -15,6 +15,7 @@ public class FigureFactory{
     public FigureFactory() {
         adaptor.put(FigureEnum.LINE, new LineFactory());
         adaptor.put(FigureEnum.SQUARE, new SquareFactory());
+        adaptor.put(FigureEnum.TRIANGLE, new TriangleFactory());
     }
 
     public Figure create(List<Point> pointList) {

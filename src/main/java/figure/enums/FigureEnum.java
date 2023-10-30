@@ -17,10 +17,6 @@ public enum FigureEnum {
         this.numOfPoint = numOfPoint;
     }
 
-    public static boolean isLine(Figure figure) {
-        return figure.size() == LINE.numOfPoint;
-    }
-
     public static FigureEnum getFigure(List<Point> pointList) {
         return Arrays.stream(FigureEnum.values())
                 .filter(figure -> figure.numOfPoint == pointList.size())
@@ -28,7 +24,11 @@ public enum FigureEnum {
                 .orElseThrow(() -> new IllegalArgumentException("도형은 선분, 삼각형, 사각형만 생성 가능합니다. 입력값을 확인해주세요"));
     }
 
-    public static boolean isSquare(Figure figure) {
-        return figure.size() == SQUARE.numOfPoint;
+    public static boolean isLine(Figure figure) {
+        return figure.size() == LINE.numOfPoint;
     }
+
+    public static boolean isSquare(Figure figure) {return figure.size() == SQUARE.numOfPoint;}
+
+    public static boolean isTriangle(Figure figure) {return figure.size() == TRIANGLE.numOfPoint;}
 }

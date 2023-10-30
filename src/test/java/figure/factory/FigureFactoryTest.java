@@ -17,25 +17,45 @@ class FigureFactoryTest {
 
     @Test
     void lineGenerate() {
+
+        //given
+        String input = "(10,10)-(14,15)";
         List<Point> pointList = Arrays.asList(new Point(10, 10), new Point(14, 15));
 
-
+        //when
+        Converter.convertInputToPoints(input);
         Figure figure = figureFactory.create(pointList);
 
+        //then
         assertThat(FigureEnum.isLine(figure)).isTrue();
     }
 
     @Test
-    void SquareGenerate() {
+    void squareGenerate() {
+
         //given
         String input = "(10,10)-(22,10)-(22,18)-(10,18)";
-        List<Point> pointList = Converter.convertInputToPoints(input);
 
         //when
+        List<Point> pointList = Converter.convertInputToPoints(input);
         Figure figure = figureFactory.create(pointList);
 
         //then
         assertThat(FigureEnum.isSquare(figure)).isTrue();
+    }
+
+    @Test
+    void triangleGenerate() {
+
+        //given
+        String input = "(10,10)-(14,15)-(20,8)";
+
+        //when
+        List<Point> pointList = Converter.convertInputToPoints(input);
+        Figure figure = figureFactory.create(pointList);
+
+        //then
+        assertThat(FigureEnum.isTriangle(figure)).isTrue();
     }
 
 }
