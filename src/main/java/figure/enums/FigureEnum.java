@@ -9,8 +9,8 @@ import java.util.List;
 public enum FigureEnum {
 
     LINE(2)
-    , Square(4)
-    , Triangle(3);
+    , SQUARE(4)
+    , TRIANGLE(3);
     private final int numOfPoint;
 
     FigureEnum(int numOfPoint) {
@@ -26,5 +26,9 @@ public enum FigureEnum {
                 .filter(figure -> figure.numOfPoint == pointList.size())
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("도형은 선분, 삼각형, 사각형만 생성 가능합니다. 입력값을 확인해주세요"));
+    }
+
+    public static boolean isSquare(Figure figure) {
+        return figure.size() == SQUARE.numOfPoint;
     }
 }
