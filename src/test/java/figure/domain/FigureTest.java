@@ -27,5 +27,17 @@ class FigureTest {
         assertThat(figure.result()).isEqualTo(6.40312423, offset(0.00099));
     }
 
+    @Test
+    void squareResult() {
 
+        //given
+        String input = "(10,10)-(22,10)-(22,18)-(10,18)";
+
+        //when
+        List<Point> pointList = Converter.convertInputToPoints(input);
+        Figure figure = figureFactory.create(pointList);
+
+        //then
+        assertThat(figure.result()).isEqualTo(96, offset(0.00099));
+    }
 }
