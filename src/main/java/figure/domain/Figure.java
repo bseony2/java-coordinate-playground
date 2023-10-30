@@ -2,9 +2,8 @@ package figure.domain;
 
 import figure.enums.FigureEnum;
 
+import java.util.Arrays;
 import java.util.List;
-
-import static java.util.Collections.singletonList;
 
 public abstract class Figure {
 
@@ -14,6 +13,10 @@ public abstract class Figure {
         this.pointList = pointList;
     }
 
+    public int size() {
+        return this.pointList.size();
+    }
+
     public double result() {
 
         double result = 0;
@@ -21,6 +24,8 @@ public abstract class Figure {
             return getLineResult();
         } else if (FigureEnum.isSquare(this)) {
             return getSquareResult();
+        } else if (FigureEnum.isTriangle(this)) {
+            return getTriangleResult();
         }
 
         return result;
@@ -42,7 +47,15 @@ public abstract class Figure {
         return height * width;
     }
 
-    public int size() {
-        return this.pointList.size();
+    private double getTriangleResult() {
+        double lengthA = pointList.get(0).getDistanceWithOtherPoint(pointList.get(1));
+        double lengthB = pointList.get(0).getDistanceWithOtherPoint(pointList.get(2));
+        double lengthC = pointList.get(1).getDistanceWithOtherPoint(pointList.get(2));
+
+        List<Double> lengths = Arrays.asList(lengthA, lengthB, lengthC);
+
+        double s = lengths.stream().mapToDouble(Double::doubleValue).sum()/2;
+
+        return Math.sqrt(s*(s-lengths.get(0))*(s-lengths.get(1))*(s-lengths.get(2)));
     }
 }

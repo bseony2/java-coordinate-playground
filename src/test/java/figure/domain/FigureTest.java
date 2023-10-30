@@ -40,4 +40,18 @@ class FigureTest {
         //then
         assertThat(figure.result()).isEqualTo(96, offset(0.00099));
     }
+
+    @Test
+    void triangleResult() {
+
+        //given
+        String input = "(10,10)-(14,15)-(20,8)";
+
+        //when
+        List<Point> pointList = Converter.convertInputToPoints(input);
+        Figure figure = figureFactory.create(pointList);
+
+        //then
+        assertThat(figure.result()).isEqualTo(29.0, offset(0.00099));
+    }
 }
